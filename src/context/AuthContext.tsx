@@ -4,12 +4,6 @@ import { signInWithPopup, createUserWithEmailAndPassword, onAuthStateChanged, Us
 import { firebaseAuth, googleProvider, facebookProvider } from '../firebase';
 import { useEffect, useState, createContext, useContext, ReactNode } from 'react';
 
-// Initialize Firebase Auth and Providers
-// console.log('calling firebase getAuth() ');
-// const firebaseAuth = getAuth();
-// const googleProvider = new GoogleAuthProvider();
-// const facebookProvider = new FacebookAuthProvider();
-
 console.log('calling createContext() ');
 // Define the AuthContext and AuthProvider
 const AuthContext = createContext<any>(null);
