@@ -1,12 +1,15 @@
 import { google } from 'googleapis';
 import { OAuth2Client } from 'google-auth-library';
 
-const CLIENT_ID = 'YOUR_CLIENT_ID';
-const CLIENT_SECRET = 'YOUR_CLIENT_SECRET';
-const REDIRECT_URI = 'YOUR_REDIRECT_URI';
+// {"web":{"client_id":"644581676766-ian5pmgkasaet7rt5n1euv72ni9nc42f.apps.googleusercontent.com","project_id":"quickstart-1552678901710","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"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","redirect_uris":["http://localhost:5173/oauth2callback","http://localhost:3000/oauth2callback"]}}
+const CLIENT_ID = '644581676766-ian5pmgkasaet7rt5n1euv72ni9nc42f.apps.googleusercontent.com';
+const CLIENT_SECRET = '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';
+const REDIRECT_URI = 'http://localhost:5173/oauth2callback';
 const REFRESH_TOKEN = 'YOUR_REFRESH_TOKEN';
 
+console.log('creating oauth2 client');
 const oAuth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+console.log('oauth2 client created');
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
 const drive = google.drive({ version: 'v3', auth: oAuth2Client });
