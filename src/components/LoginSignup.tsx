@@ -5,18 +5,18 @@ import 'node-polyfill-webpack-plugin';
 
 const loginWithGoogle = () => {
   // Define loginWithGoogle function
-  console.log('Login with Google');
+  console.log('*Login with Google');
 };
 
 const loginWithFacebook = () => {
   // Define loginWithFacebook function
-  console.log('Login with Facebook');
+  console.log('*Login with Facebook');
 };
 
 const signupWithEmail = (event: React.FormEvent) => {
   event.preventDefault();
   // Define signupWithEmail function
-  console.log('Sign up with Email');
+  console.log('*Sign up with Email');
 };
 
 const LoginSignup: React.FC = () => {

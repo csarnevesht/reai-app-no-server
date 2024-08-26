@@ -18,8 +18,9 @@ const ProfileCompletion: React.FC = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       if (currentUser) {
+        console.log('fetching profile');
         try {
-          const profileData = await getProfile(currentUser.uid) as Profile;
+          const profileData = await getProfile(currentUser.uid) as Profile | null;
           if (profileData && profileData.name && profileData.email && profileData.phone) {
             setProfile(profileData);
             navigate('/my-docs');

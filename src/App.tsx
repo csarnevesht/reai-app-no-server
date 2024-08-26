@@ -18,10 +18,10 @@ const App: React.FC = () => {
           <Route path="/" element={<SplashScreen />} />
           <Route path="/login" element={<LoginSignup />} />
           <Route path="/profile-completion" element={<ProfileCompletion />} />
-          {/* <Route path="/my-docs" element={<MyDocs />} />
+          <Route path="/my-docs" element={<MyDocs />} />
           <Route path="/upload-document" element={<UploadDocument />} />
           <Route path="/document-sharing" element={<DocumentSharing />} />
-          <Route path="/doc-summarization" element={<DocSummarization />} /> */}
+          <Route path="/doc-summarization" element={<DocSummarization />} />
         </Routes>
       </Router>
     </AuthProvider>

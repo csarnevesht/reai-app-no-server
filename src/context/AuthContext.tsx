@@ -2,7 +2,7 @@
 // import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, User } from 'firebase/auth';
 import { signInWithPopup, createUserWithEmailAndPassword, onAuthStateChanged, User } from 'firebase/auth';
 import { firebaseAuth, googleProvider, facebookProvider } from '../firebase';
-import { useEffect, useState, createContext, useContext, ReactNode } from 'react';
+import React, { useEffect, createContext, useContext, useState, ReactNode } from 'react';
 
 console.log('calling createContext() ');
 // Define the AuthContext and AuthProvider
@@ -10,13 +10,14 @@ const AuthContext = createContext<any>(null);
 console.log('after calling createContext() ');
 
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
+export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   console.log('AuthProvider');
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(firebaseAuth, (user: User | null) => {
       console.log('onAuthStateChanged');
+      console.log('user: ' + user);
       setCurrentUser(user);
     });
     return unsubscribe;
@@ -38,6 +39,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   console.log('returning AuthContext.Provider');
+  console.log('currentUser: ' + currentUser);
   return (
     <AuthContext.Provider value={{ currentUser, loginWithGoogle, loginWithFacebook, signupWithEmail }}>
       {children}
